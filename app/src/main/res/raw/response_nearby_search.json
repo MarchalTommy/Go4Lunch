@@ -1,0 +1,347 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "ATtYBwICmNkcAtmj-q1X5maEfyhAoAwu09NkAwix5jNJmcxxLGQQlznri3XFcYYpr_XhIzxK9vTKmfatAl2uSAe_MSn2BMyeKCIWw9cd38QtziuZYpmCRbtnL2QVdETmR2I6fdXR3Be7HOd5wnGB0JKcsn2hMUX-d_4G_u2e8gww4waCA6so0QQwiKarC1JCShtle6jJpB74bYjmTOCC3XEVuNB_4b4pgGv5q_WClI8YHNYhoe5dDcFsaBxprfeTeJ-EYEggSx6Xr482vABgZbcgMCq3fMLehxoxmd45r-zOe-UxawaPCklfSugiXo80RYR2w_GkjfX5nq_IcoPKAIuab0P4j7InMcqSzcjkOUiSIDQ2HpgkiSkDAPzePGDaN1LHvZQtxnRanNA0-1RXg9kFVvRPBQlyEHLE_aoFv0YTOucFLCjPoen3ncSFpc49IJI",
+   "results" : [
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.88958290000001,
+               "lng" : 2.282837100000001
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.89089178029151,
+                  "lng" : 2.284155680291502
+               },
+               "southwest" : {
+                  "lat" : 48.88819381970851,
+                  "lng" : 2.281457719708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Chlew",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103321718781645818681\"\u003eFranck75 Darty\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwK0_DENv7sx_2rKwSIVFR5AgZuVdFGhpG-yUKsU_a-yp9Efz23-6AhrLoeYI5eEJ7Zg64P22jRKwHnDBI1Z_702BgAXcCfBasbD85eE2UV_38PgnVPvvFrQc0KmYRsvOiK4Amc6MDL5oEHqgGp5S8CEu9pC3cEkT-vrqJkmzNSFP8og",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJRVjcvf1v5kcRPZ9mTXZ5bc8",
+         "plus_code" : {
+            "compound_code" : "V7QM+R4 Levallois-Perret, France",
+            "global_code" : "8FW4V7QM+R4"
+         },
+         "rating" : 4.7,
+         "reference" : "ChIJRVjcvf1v5kcRPZ9mTXZ5bc8",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 143,
+         "vicinity" : "46 Rue Chaptal, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.889634,
+               "lng" : 2.282697
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.8909744802915,
+                  "lng" : 2.284029930291502
+               },
+               "southwest" : {
+                  "lat" : 48.8882765197085,
+                  "lng" : 2.281331969708499
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Coffee Break",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "place_id" : "ChIJb6mNUoZv5kcRO9L5MQjTyeo",
+         "plus_code" : {
+            "compound_code" : "V7QM+V3 Levallois-Perret, France",
+            "global_code" : "8FW4V7QM+V3"
+         },
+         "rating" : 5,
+         "reference" : "ChIJb6mNUoZv5kcRO9L5MQjTyeo",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "48 Rue Chaptal, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.88912879999999,
+               "lng" : 2.2829437
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.89043728029149,
+                  "lng" : 2.284337430291502
+               },
+               "southwest" : {
+                  "lat" : 48.88773931970849,
+                  "lng" : 2.281639469708499
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Sushi YR",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105400768526421991926\"\u003eTatiana S\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwLBeMmM-rsLQ9iAzpx3B49BE9wNPwa8f3vVmZCZ_1lTgkIkVMbhy_SWoXY4kpYKIYwRsijJ1qzdQMNedQ4gou5OW7Rnyxk0gTJ9qTk9mLMGRnXXsreCnPiFuF2UBxaLUCfoOODuJmmX42bJCun91oqro5K0Z16ez9ROBzwYgmu6eOTN",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJP49B481v5kcRZq85drFt9Ww",
+         "plus_code" : {
+            "compound_code" : "V7QM+M5 Levallois-Perret, France",
+            "global_code" : "8FW4V7QM+M5"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJP49B481v5kcRZq85drFt9Ww",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 10,
+         "vicinity" : "11 Rue Louis Rouquier, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.8888078,
+               "lng" : 2.2826813
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.8901869802915,
+                  "lng" : 2.284034530291502
+               },
+               "southwest" : {
+                  "lat" : 48.8874890197085,
+                  "lng" : 2.281336569708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Orma Bistrot Corse",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1280,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104611147110184515709\"\u003eOrma Bistrot Corse\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwIDYSy3EBH71ZNSrbdi2vs4mDy4QZmeAeKrk95jHgYpRtEKpzZrcOnrWQnRifkR3igZiNCgDa57sGD6IgcKV6cIgmLSPXf_nlLZNxyxfm98E46Owjt9FN1eMYTrunHTPRdouVSbIc7-8rxOfNSaZP1I-6f78ef63EgTzohb3bBd_GxN",
+               "width" : 3360
+            }
+         ],
+         "place_id" : "ChIJ7aa_NYZv5kcRK_O8h1q-8rs",
+         "plus_code" : {
+            "compound_code" : "V7QM+G3 Levallois-Perret, France",
+            "global_code" : "8FW4V7QM+G3"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJ7aa_NYZv5kcRK_O8h1q-8rs",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 82,
+         "vicinity" : "10 Rue Louis Rouquier, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.889897,
+               "lng" : 2.282123
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.89120133029149,
+                  "lng" : 2.283538930291502
+               },
+               "southwest" : {
+                  "lat" : 48.8885033697085,
+                  "lng" : 2.280840969708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Crêperie Celestine",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 895,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111916933502423491031\"\u003eCrêperie Celestine\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwJu8NjlGNdlvxqVflE690C3-8M0diMAUlcSuV8nxFHzZv7CTnFZTdOuk07RPO3Kkg582M7Nup7q572rzY23BYZQZbLk6EuZYpqej4GRNF0w-FmK20p4Bea_Su1VAVx7bPyPHiUNTOYHitdqKYEkgLMOYnfClbwiWkaDlKTLM5SPtZ3a",
+               "width" : 1814
+            }
+         ],
+         "place_id" : "ChIJ63s3qYdv5kcRNM5hVUwKi8U",
+         "plus_code" : {
+            "compound_code" : "V7QJ+XR Levallois-Perret, France",
+            "global_code" : "8FW4V7QJ+XR"
+         },
+         "rating" : 4.4,
+         "reference" : "ChIJ63s3qYdv5kcRNM5hVUwKi8U",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "store", "establishment" ],
+         "user_ratings_total" : 138,
+         "vicinity" : "65 Rue Chaptal, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.8895025,
+               "lng" : 2.2818076
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.8908941802915,
+                  "lng" : 2.283133330291502
+               },
+               "southwest" : {
+                  "lat" : 48.8881962197085,
+                  "lng" : 2.280435369708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Street Bangkok Rice & Noodles",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 2048,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103581474819815911711\"\u003eTHIBAUD MEYNIEUX\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwI_khktbC5aPwBI-y6u4ZWeo3u-J8j39bFaxvXhyJWKUPQDPC0LVGvfLB50TpheFGVsbYlz74gOgXJs_VTVH0Zd2UCI_m4TXgyJNKtmSnuNVOQx1mu42pvxmIojGcxqNQJ2PPm55JL-MjZra5qtKi3F0-sNgZu2rtvC0ULaSwaoyMwB",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJDwvMAOpv5kcRiC3r1VC99-8",
+         "plus_code" : {
+            "compound_code" : "V7QJ+RP Levallois-Perret, France",
+            "global_code" : "8FW4V7QJ+RP"
+         },
+         "rating" : 4.1,
+         "reference" : "ChIJDwvMAOpv5kcRiC3r1VC99-8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "meal_takeaway",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 70,
+         "vicinity" : "12 Rue Aristide Briand, Levallois-Perret"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.8888304,
+               "lng" : 2.282373
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.8901470802915,
+                  "lng" : 2.283757680291502
+               },
+               "southwest" : {
+                  "lat" : 48.8874491197085,
+                  "lng" : 2.281059719708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Yamada8",
+         "place_id" : "ChIJD0YSECdv5kcRWZ7Pdhc5Vmw",
+         "plus_code" : {
+            "compound_code" : "V7QJ+GW Levallois-Perret, France",
+            "global_code" : "8FW4V7QJ+GW"
+         },
+         "reference" : "ChIJD0YSECdv5kcRWZ7Pdhc5Vmw",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "vicinity" : "7 Rue Louis Rouquier, Levallois-Perret"
+      },
+      {
+         "business_status" : "CLOSED_TEMPORARILY",
+         "geometry" : {
+            "location" : {
+               "lat" : 48.88978729999999,
+               "lng" : 2.2838631
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 48.8911815302915,
+                  "lng" : 2.285334630291502
+               },
+               "southwest" : {
+                  "lat" : 48.8884835697085,
+                  "lng" : 2.282636669708498
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "name" : "Mok",
+         "permanently_closed" : true,
+         "photos" : [
+            {
+               "height" : 3096,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112943133478765509513\"\u003eyakushima lover\u003c/a\u003e"
+               ],
+               "photo_reference" : "ATtYBwK5VDk1__XuEcF_abAq0lOQoOcqPBxyjLAnkRjA7NtnFwBthUftDtvUOfpyN5eeHcdy38QjvfV85H-TLjoMlknM_EOsPewf2u1olCa6QJBcjknL6thMOkvJFRvw94TZkvO5mGc2qescU-NXMPXTUnu6oSwa8uzLS5d1q3b4sgkOuIAE",
+               "width" : 3096
+            }
+         ],
+         "place_id" : "ChIJBYBSZ4Zv5kcRJE2wow687Hc",
+         "plus_code" : {
+            "compound_code" : "V7QM+WG Levallois-Perret, France",
+            "global_code" : "8FW4V7QM+WG"
+         },
+         "price_level" : 1,
+         "rating" : 4.4,
+         "reference" : "ChIJBYBSZ4Zv5kcRJE2wow687Hc",
+         "scope" : "GOOGLE",
+         "types" : [ "bar", "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 66,
+         "vicinity" : "51 Rue Danton, Levallois-Perret"
+      }
+   ],
+   "status" : "OK"
+}

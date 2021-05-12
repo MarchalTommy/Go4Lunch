@@ -1,0 +1,244 @@
+{
+   "html_attributions" : [],
+   "result" : {
+      "formatted_address" : "95 im, Boulevard Gouvion-Saint-Cyr, 75017 Paris",
+      "geometry" : {
+         "location" : {
+            "lat" : 48.8786212,
+            "lng" : 2.2846601
+         },
+         "viewport" : {
+            "northeast" : {
+               "lat" : 48.8799900302915,
+               "lng" : 2.285905430291502
+            },
+            "southwest" : {
+               "lat" : 48.8772920697085,
+               "lng" : 2.283207469708498
+            }
+         }
+      },
+      "international_phone_number" : "+33 1 55 37 95 30",
+      "name" : "Léon - [ex Léon de Bruxelles]",
+      "opening_hours" : {
+         "open_now" : true,
+         "periods" : [
+            {
+               "close" : {
+                  "day" : 0,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 0,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 1,
+                  "time" : "1500"
+               },
+               "open" : {
+                  "day" : 1,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 1,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 1,
+                  "time" : "1800"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 2,
+                  "time" : "1500"
+               },
+               "open" : {
+                  "day" : 2,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 2,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 2,
+                  "time" : "1800"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 3,
+                  "time" : "1500"
+               },
+               "open" : {
+                  "day" : 3,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 3,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 3,
+                  "time" : "1800"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 4,
+                  "time" : "1500"
+               },
+               "open" : {
+                  "day" : 4,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 4,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 4,
+                  "time" : "1800"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 5,
+                  "time" : "1500"
+               },
+               "open" : {
+                  "day" : 5,
+                  "time" : "1145"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 5,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 5,
+                  "time" : "1800"
+               }
+            },
+            {
+               "close" : {
+                  "day" : 6,
+                  "time" : "2100"
+               },
+               "open" : {
+                  "day" : 6,
+                  "time" : "1145"
+               }
+            }
+         ],
+         "weekday_text" : [
+            "Monday: 11:45 AM – 3:00 PM, 6:00 – 9:00 PM",
+            "Tuesday: 11:45 AM – 3:00 PM, 6:00 – 9:00 PM",
+            "Wednesday: 11:45 AM – 3:00 PM, 6:00 – 9:00 PM",
+            "Thursday: 11:45 AM – 3:00 PM, 6:00 – 9:00 PM",
+            "Friday: 11:45 AM – 3:00 PM, 6:00 – 9:00 PM",
+            "Saturday: 11:45 AM – 9:00 PM",
+            "Sunday: 11:45 AM – 9:00 PM"
+         ]
+      },
+      "photos" : [
+         {
+            "height" : 720,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/111964522932909710869\"\u003eLéon - [ex Léon de Bruxelles]\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwLyt7-57grc5ZazyOusr3g831hv0kZE7D2-J3LkorRCJgGs7Y187Q_P5RPhvzxI4Q6r-I4Vk1jmMdTEAL_SsJQiqxjPGRgJuVJRFpvR_vs1J5DS-3ucU1KyiTMzNAaxdOt77E-dMErC4dEkG_CbADsO29-gUl_ICs03YW3z-WV7KmnT",
+            "width" : 1280
+         },
+         {
+            "height" : 2988,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/118167372532209039441\"\u003ePatrick JEAN-OLIVE\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwLSDC4Wxk8UxN_tZEslGZ7tnP3b3m2IZHxKr0Sebqexi9JN-flI0kNybKB6CGAQH8fjUBz5vbTaQeI5aEgh-MGCvV3VjylQZguw3AUswNHaBHMwYpaHH1iUu_rf56KFc4OvGJpf3fMz6ymV7YB0XC9vDsPX14LKG-tQ2-fv7u7FCjFm",
+            "width" : 5312
+         },
+         {
+            "height" : 3171,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/106153695559785750933\"\u003eMirror. Yoo\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwIcIrPlwHTaGcj6aYcxzRlQbFKh7dXHSO8_Kpk5AX69TcU2AlRKoz4iNKS-cNa2mZg6bk5weBLo6JsLsIGNQMajd0eisvMVGWlfdcsW0KDx7VKsuTeoQ6oDl3THIt59S68oY12rOm6yU9FeAJZfqxJswxtbcjov2Ccpodj4pLbqmwTF",
+            "width" : 2748
+         },
+         {
+            "height" : 720,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/111964522932909710869\"\u003eLéon - [ex Léon de Bruxelles]\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwLZ8_A0F9lOyl1f7XQVxL4eEN2X4ODVR_UVdGvPAkAocbdZp46dAOaqEfy44Uwd7QpLZo1It7XVOoXHPGZSakWqGKoPWtMV4LGSAd7m5lLYphG-t1Et8TL3rjlzIPNO6kiT-Kk6HyvD36u6MRa4RQvjvG8XdZbDpxMBHuGZxuoA0sW9",
+            "width" : 1080
+         },
+         {
+            "height" : 1536,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/110548854863380156245\"\u003eJonathan Liu\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwI_jKZyBzRtSVpGh78PTLp52RqAMh3_ZsIRr0f8qe6cPC_VcIAsZiFAyDdjCx2TSFlFNziegdRYIMyHXuzmsjrjz0IDwhB6ISbwiq1p5KGh5O27bYHwLaxtlWhe8Kq_dYYEID07AIau0WQNAvVMiSZOJ3g0LguEiztIRjaBdbfZDciu",
+            "width" : 2304
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/107452354278529346380\"\u003eAkaluck Thammasunthorn\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwKZrmZOefV79QoynLdt-Zg8FllaUvkyok6h2Ey7hXNsCCOWQ-r9h2QX24nLbafMEyqzhh9PPTJRC2UnH0PJa4mU5mWb_2-TsX9W7jEmS5Z3x7O-jCA-ERoqL_C7FMAWiTKLBytLM5c9LCq2SbRC8x-45rOvUiiyCVWsGsqBfKG_h34X",
+            "width" : 4032
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/117328221238571398357\"\u003eMatteo Chang\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwKK-b_BOMC4GeI6MZWmMAcG7CGKuX_-z1VBbymoNmfbxKf7LsrJmW1S_N_xuDSnyLH8X3BsfZLbK-CaSYAr-FVcBhI8T7kBrX-BBMxvBkNhXLVZtMXxyUKIdWdffhyJ1dRcM2lsrb7mEsU8BBBPr8CzplPd87mfSQV7y0v0ZIJ4GRy6",
+            "width" : 4032
+         },
+         {
+            "height" : 3264,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/115885725323461087908\"\u003eddkinombe\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwJtyZzGn1ScQsZzg0Svvj6gaXUCk7jWZot4dMugQkzMK8KdSrTTYBdb1IoivLk5wC9CwswV2_xjwiXu0BSuwVu3osshQVj4ttOCM59XSgu1sd27QsfAMXmmHQ3hp-UDUjbaRzcsiMJg_TCy_dPFWyi3icon8YewamB8_cf6joxNhiw8",
+            "width" : 2448
+         },
+         {
+            "height" : 2268,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/118366532548648813774\"\u003eTJ K\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwJFPN29kfFB_SPwyPmUE9dUU0m0xuj-9wYQ5lU3T8cB_VV_6Gstw8i4TnM6aKmJ-0x1vRZYpEQblenLf-UHdG4gHzw-nHA7XBodAjrLj3wG753xZzhrhFNDL1VDl3sBYPqEJFZl-CYoiqN0yY3O33beZJuBskCg18VzyKvHUSKIEPFr",
+            "width" : 4032
+         },
+         {
+            "height" : 3024,
+            "html_attributions" : [
+               "\u003ca href=\"https://maps.google.com/maps/contrib/114321621389423915891\"\u003eHamza HASNAOUI\u003c/a\u003e"
+            ],
+            "photo_reference" : "ATtYBwKIEck6qG-wnVx65USCCR4SMX7NB63DDfomUdiCwuW2-bAObD-dQ2-jlGFf97aRyiqXU_6blMw3mFQ5jHjH1dF6Pbuhv0X9EAsvQ8rki8VM_KOH8s1Od9Xa_S3ryFBnWFP-AFREYr5Bub9qwiei9Cgq9-IZDEu5YcoRhNI7e9ufsHYe",
+            "width" : 4032
+         }
+      ],
+      "place_id" : "ChIJPX1soIxv5kcRulcsrJyYZpc",
+      "rating" : 3.8,
+      "website" : "https://brasserie.restaurantleon.fr/fr/porte-maillot"
+   },
+   "status" : "OK"
+}
