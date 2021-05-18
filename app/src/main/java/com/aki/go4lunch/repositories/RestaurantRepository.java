@@ -27,7 +27,7 @@ public class RestaurantRepository {
     private MutableLiveData<ResultDetails> restaurantDetail = new MutableLiveData<>();
 
     public MutableLiveData<ArrayList<Result>> fetchRestaurantsAround(String location, Context context) {
-        if (resultLiveData.getValue() == null) {
+        if (resultLiveData.getValue() == null || resultLiveData.getValue().isEmpty()) {
             RestaurantCalls.fetchRestaurantsAround(new RestaurantCalls.Callbacks() {
                 @Override
                 public void onResponse(@Nullable JsonObject jsonObject) {

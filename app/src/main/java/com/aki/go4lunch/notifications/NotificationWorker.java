@@ -20,7 +20,6 @@ public class NotificationWorker extends Worker {
 
     public static final int NOTIFICATION_ID = 100;
     public static final String NOTIFICATION_TAG = "FIREBASETEST";
-    public static Boolean notificationsEnabled = false;
 
     public NotificationWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
@@ -29,7 +28,6 @@ public class NotificationWorker extends Worker {
     @NonNull
     @Override
     public Result doWork() {
-        //DEFINE WORK HERE (notification with restaurant info)
 
         String restaurantName = getInputData().getString("RESTAURANT_NAME");
         String formattedAddress = getInputData().getString("RESTAURANT_ADDRESS");

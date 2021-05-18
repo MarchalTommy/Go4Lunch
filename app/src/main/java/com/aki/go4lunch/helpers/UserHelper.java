@@ -44,12 +44,6 @@ public class UserHelper {
                 .set(userToCreate);
     }
 
-    public static Task<QuerySnapshot> getUsersOnPlace(String place) {
-        return UserHelper.getUserCollection()
-                .whereEqualTo("placeBooked", place)
-                .get();
-    }
-
     public static Task<DocumentSnapshot> getUser(String uid) {
         return UserHelper.getUserCollection()
                 .document(uid)

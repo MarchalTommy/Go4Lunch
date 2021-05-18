@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -28,12 +29,12 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.aki.go4lunch.R;
+import com.aki.go4lunch.Utils;
 import com.aki.go4lunch.databinding.ActivityMainBinding;
 import com.aki.go4lunch.databinding.NavHeaderBinding;
 import com.aki.go4lunch.databinding.SettingsDialogBinding;
 import com.aki.go4lunch.events.FromSearchToFragment;
 import com.aki.go4lunch.events.LunchSelectedEvent;
-import com.aki.go4lunch.events.MapReadyEvent;
 import com.aki.go4lunch.events.SettingDialogClosed;
 import com.aki.go4lunch.models.ResultDetails;
 import com.aki.go4lunch.models.User;
@@ -64,6 +65,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+
+import static com.aki.go4lunch.Utils.getTimeBeforeNextMidday;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.logout:
                         Intent intent = new Intent(this, LoginActivity.class);
                         startActivity(intent);
+                        finish();
                         userViewModel.logout(this);
                         break;
                 }
@@ -109,17 +113,32 @@ public class MainActivity extends AppCompatActivity {
     //Menu Listener (Places Autocomplete)
     private final MenuItem.OnMenuItemClickListener searchListener =
             menuItem -> {
-                List<Place.Field> fieldList = Arrays.asList(Place.Field.NAME, Place.Field.ID);
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList)
-                        .setTypeFilter(TypeFilter.ESTABLISHMENT)
-                        .setCountry("FR")
-                        .setLocationBias(RectangularBounds.newInstance(
-                                new LatLng(48.638732, 2.056947),
-                                new LatLng(49.031723, 2.694153)))
-                        .build(this);
+        if(Build.VERSION.SDK_INT > 25) {
+            List<Place.Field> fieldList = Arrays.asList(Place.Field.NAME, Place.Field.ID);
+            Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList)
+                    .setTypeFilter(TypeFilter.ESTABLISHMENT)
+                    .setCountry("FR")
+                    .setLocationBias(RectangularBounds.newInstance(
+                            new LatLng(48.638732, 2.056947),
+                            new LatLng(49.031723, 2.694153)))
+                    .build(this);
 
-                startActivityForResult(intent, 100);
-                return true;
+            startActivityForResult(intent, 100);
+            return true;
+        } else {
+            List<Place.Field> fieldList = Arrays.asList(Place.Field.NAME, Place.Field.ID);
+            Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fieldList)
+                    .setTypeFilter(TypeFilter.ESTABLISHMENT)
+                    .setCountry("FR")
+                    .setLocationBias(RectangularBounds.newInstance(
+                            new LatLng(48.638732, 2.056947),
+                            new LatLng(49.031723, 2.694153)))
+                    .build(this);
+
+            startActivityForResult(intent, 100);
+            return true;
+        }
+
             };
     //When click on the "Your Lunch" button in the drawer
     public void lunchClick() {
@@ -178,6 +197,16 @@ public class MainActivity extends AppCompatActivity {
         navView.setNavigationItemSelectedListener(drawerListener);
 
         setContentView(mainBinding.getRoot());
+
+        mainBinding.bottomNavView.setVisibility(View.VISIBLE);
+        mainBinding.toolbar.setVisibility(View.VISIBLE);
+        updateUserUi();
+
+        userViewModel.getAllUsers().observe(this, users -> {
+            if (users != null) {
+                userViewModel.setLocalUsersData((ArrayList<User>) users);
+            }
+        });
     }
 
     @Override
@@ -200,8 +229,6 @@ public class MainActivity extends AppCompatActivity {
     // WorkRequest on subscribe to be launched if the user set his lunch to a restaurant
     @Subscribe
     public void setWorkRequest(LunchSelectedEvent event) {
-        Calendar currentDate = Calendar.getInstance();
-        Calendar dueDate = Calendar.getInstance();
         StringBuilder userStringBuilder = new StringBuilder();
 
         ArrayList<User> userArray = event.userList;
@@ -229,14 +256,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        // Set Execution around 12:00:00 PM
-        dueDate.set(Calendar.HOUR_OF_DAY, 12);
-        dueDate.set(Calendar.MINUTE, 0);
-        dueDate.set(Calendar.SECOND, 0);
-        if (dueDate.before(currentDate)) {
-            dueDate.add(Calendar.HOUR_OF_DAY, 24);
-        }
-        long timeDiff = dueDate.getTimeInMillis() - currentDate.getTimeInMillis();
+        long timeDiff = getTimeBeforeNextMidday();
 
         OneTimeWorkRequest notificationRequest = new OneTimeWorkRequest.Builder(NotificationWorker.class)
                 .setInitialDelay(timeDiff, TimeUnit.MILLISECONDS)
@@ -321,28 +341,6 @@ public class MainActivity extends AppCompatActivity {
             }
             headerBinding.username.setText(userViewModel.getCurrentFirebaseUser().getDisplayName());
             headerBinding.usermail.setText(userViewModel.getCurrentFirebaseUser().getEmail());
-        }
-    }
-
-    // Event called when the map fragment is ready
-    @Subscribe
-    public void onMapReadyEvent(MapReadyEvent event) {
-        if (event.mapReady) {
-
-            restaurantViewModel.getRestaurantsAround(localUser.getLocation(), this).observe(this, results -> {
-                if (results != null) {
-                    //restaurantViewModel.setLocalRestaurantsData(results);
-                    mainBinding.bottomNavView.setVisibility(View.VISIBLE);
-                    mainBinding.toolbar.setVisibility(View.VISIBLE);
-                    updateUserUi();
-                }
-            });
-
-            userViewModel.getAllUsers().observe(this, users -> {
-                if (users != null) {
-                    userViewModel.setLocalUsersData((ArrayList<User>) users);
-                }
-            });
         }
     }
 

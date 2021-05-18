@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -28,7 +29,6 @@ import androidx.navigation.Navigation;
 import com.aki.go4lunch.R;
 import com.aki.go4lunch.databinding.FragmentMapBinding;
 import com.aki.go4lunch.events.FromSearchToFragment;
-import com.aki.go4lunch.events.MapReadyEvent;
 import com.aki.go4lunch.models.Result;
 import com.aki.go4lunch.models.ResultDetails;
 import com.aki.go4lunch.models.User;
@@ -41,7 +41,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -63,6 +62,8 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 public class MapFragment extends Fragment {
 
+    //TODO : FAIRE MARCHER FIABLE SUR API 19 !
+
     RestaurantViewModel restaurantViewModel;
     UserViewModel userViewModel;
 
@@ -78,6 +79,8 @@ public class MapFragment extends Fragment {
     LatLng latLng;
     String stringLocation = "";
     GoogleMap gMap;
+
+    ArrayList<Result> resultList = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -100,7 +103,6 @@ public class MapFragment extends Fragment {
         client = LocationServices.getFusedLocationProviderClient(requireActivity());
 
         getPermissions();
-        initMap();
 
         return view;
     }
@@ -110,49 +112,62 @@ public class MapFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         mapBinding = FragmentMapBinding.bind(view);
+        initMap();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        supportMapFragment.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        supportMapFragment.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        supportMapFragment.onDestroy();
     }
 
     public void initMap() {
-        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                gMap = googleMap;
+        supportMapFragment.getMapAsync(googleMap -> {
+            gMap = googleMap;
 
-                //Setting MapStyle to get a clean and clear map
-                try {
-                    boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.mapstyle));
-                if(!success) {
+            onLocationPermissions();
+
+            //Setting MapStyle to get a clean and clear map
+            try {
+                boolean success = googleMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(requireContext(), R.raw.mapstyle));
+                if (!success) {
                     Log.d(TAG, "onMapReady: style parsing failed.");
                 }
-                } catch (Resources.NotFoundException e) {
-                    Log.e(TAG, "onMapReady: Can't find style. Error :", e);
-                }
-
-                //Telling the Activity that the map is ready for the api call and com.aki.go4lunch.UI Update (only if no local data can be found)
-                EventBus.getDefault().post(new MapReadyEvent(true));
-
-                //Getting restaurant data
-                getLocalRestaurantsData();
-
-                gMap.setOnMarkerClickListener(marker -> {
-                    restaurantViewModel.getRestaurantDetail(marker.getSnippet(), requireContext())
-                            .observe(getViewLifecycleOwner(), resultDetails -> {
-                                if (resultDetails != null) {
-                                    restaurantViewModel.setLocalCachedDetails(resultDetails.getResult());
-                                    navController.navigate(R.id.detailFragment);
-                                }
-                            });
-                    return false;
-                });
-
-                // If permissions are granted, activate the blue marker for the user position
-                if(ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PERMISSION_GRANTED
-                        && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PERMISSION_GRANTED) {
-                    gMap.setMyLocationEnabled(true);
-                }
-
-
+            } catch (Resources.NotFoundException e) {
+                Log.e(TAG, "onMapReady: Can't find style. Error :", e);
             }
+
+            // If permissions are granted, activate the blue marker for the user position
+            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            }
+
+            //Getting restaurant data
+            getLocalRestaurantsData();
+
+            googleMap.setOnMarkerClickListener(marker -> {
+                restaurantViewModel.getRestaurantDetail(marker.getSnippet(), requireContext())
+                        .observe(getViewLifecycleOwner(), resultDetails -> {
+                            if (resultDetails != null) {
+                                restaurantViewModel.setLocalCachedDetails(resultDetails.getResult());
+                                navController.navigate(R.id.detailFragment);
+                            }
+                        });
+                return false;
+            });
         });
     }
 
@@ -165,6 +180,26 @@ public class MapFragment extends Fragment {
         float hueSecondary = 150.66666666666666f;
         BitmapDescriptor iconBasic = BitmapDescriptorFactory.defaultMarker(huePrimary);
         BitmapDescriptor iconReserved = BitmapDescriptorFactory.defaultMarker(hueSecondary);
+
+ /*       for (Result r : resultList) {
+            LatLng restaurantLocation = new LatLng(
+                    r.getGeometry().getLocation().getLat(),
+                    r.getGeometry().getLocation().getLng());
+
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.title(r.getName());
+            markerOptions.snippet(r.getPlaceId());
+            markerOptions.position(restaurantLocation);
+            markerOptions.icon(iconBasic);
+
+            for (User u : allUsers) {
+                if (u.getPlaceBooked().equals(r.getName())) {
+                    markerOptions.icon(iconReserved);
+                }
+
+                gMap.addMarker(markerOptions);
+            }
+        }*/
 
         //Getting all the users
         userViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
@@ -187,13 +222,14 @@ public class MapFragment extends Fragment {
                         markerOptions.position(restaurantLocation);
                         markerOptions.icon(iconBasic);
 
-                        for (User u : allUsers) {
-                            if (u.getPlaceBooked().equals(r.getName())) {
-                                markerOptions.icon(iconReserved);
+                            for (User u : allUsers) {
+                                if (u.getPlaceBooked().equals(r.getName())) {
+                                    markerOptions.icon(iconReserved);
+                                }
+
+                                gMap.addMarker(markerOptions);
                             }
 
-                            gMap.addMarker(markerOptions);
-                        }
                     }
                 }
             });
@@ -211,7 +247,8 @@ public class MapFragment extends Fragment {
         if (userViewModel.getCurrentFirebaseUser() != null)
             userViewModel.setLocation(latLng);
         //For the map
-        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+        if (latLng != null && gMap != null)
+            gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
     }
 
     @Override
@@ -246,6 +283,26 @@ public class MapFragment extends Fragment {
         gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(searchLocation, 19));
     }
 
+    public void onLocationPermissions() {
+        restaurantViewModel.getRestaurantsAround(localUser.getLocation(),
+                requireContext()).observe(getViewLifecycleOwner(), new Observer<ArrayList<Result>>() {
+            @Override
+            public void onChanged(ArrayList<Result> results) {
+                if(results != null) {
+                    resultList.addAll(results);
+                }
+
+            }
+        });
+
+        userViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
+            if (users != null) {
+                allUsers.addAll(users);
+            }
+        });
+
+    }
+
     //-----------------------------------------
     //LOCATION PERMISSION
     //LOCATION ACCESS
@@ -262,6 +319,11 @@ public class MapFragment extends Fragment {
             public void onLocationChanged(@NonNull Location location) {
                 locationVariableUpdate(location);
             }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
         });
     }
 
@@ -276,7 +338,6 @@ public class MapFragment extends Fragment {
         } else {
             Log.d(TAG, "getPermissions: PERMISSIONS ALREADY GRANTED ");
             if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-
                 //To start the location update listener
                 locationUpdates();
                 //When location service is enabled, get last location
@@ -289,7 +350,7 @@ public class MapFragment extends Fragment {
                     public void onComplete(@NonNull Task<Location> task) {
                         Location location = task.getResult();
                         if (location != null) {
-                            //locationVariableUpdate(location);
+                            locationVariableUpdate(location);
                         } else {
                             LocationRequest locationRequest = new LocationRequest().setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                                     .setInterval(10000)
@@ -357,6 +418,21 @@ public class MapFragment extends Fragment {
                         Location location = task.getResult();
                         if (location != null) {
                             locationVariableUpdate(location);
+                        } else {
+                            LocationRequest locationRequest = new LocationRequest().setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                                    .setInterval(10000)
+                                    .setFastestInterval(5000)
+                                    .setNumUpdates(1);
+
+                            LocationCallback locationCallback = new LocationCallback() {
+                                @Override
+                                public void onLocationResult(@NonNull LocationResult locationResult) {
+                                    Location location1 = locationResult.getLastLocation();
+                                    locationVariableUpdate(location1);
+                                }
+                            };
+                            //REQUEST LOCATION UPDATES
+                            client.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
                         }
                     });
                     //To start the location update listener

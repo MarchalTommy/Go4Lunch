@@ -67,7 +67,7 @@ public class DetailFragment extends Fragment {
                 userViewModel.updatePlaceBooked(restaurantDetail.getName());
                 localUser.setPlaceBooked(restaurantDetail.getName());
                 updateAdapter();
-                DrawableCompat.setTint(bindings.detailFab.getDrawable(), getResources().getColor(R.color.secondaryColor));
+                bindings.detailFab.setColorFilter(getResources().getColor(R.color.secondaryColor));
             } else if (localUser.getPlaceBooked().equals(restaurantDetail.getName())) {
                 DetailFragment.this.FABAlertDialog(1);
             } else {
@@ -242,7 +242,7 @@ public class DetailFragment extends Fragment {
                             localUser.setHasBooked(false);
                             localUser.setPlaceBooked("");
                             updateAdapter();
-                            DrawableCompat.setTint(bindings.detailFab.getDrawable(), getResources().getColor(R.color.black));
+                            bindings.detailFab.setColorFilter(getResources().getColor(R.color.white));
                         })
                         .setNegativeButton(getString(R.string.dialog_no), (dialogInterface, i) -> dialogInterface.dismiss())
                         .setMessage(getString(R.string.lunch_already_placed)).setTitle(getString(R.string.cancel_lunch))
@@ -257,7 +257,7 @@ public class DetailFragment extends Fragment {
                             userViewModel.updatePlaceBooked(restaurantDetail.getName());
                             localUser.setPlaceBooked(restaurantDetail.getName());
                             updateAdapter();
-                            DrawableCompat.setTint(bindings.detailFab.getDrawable(), getResources().getColor(R.color.secondaryColor));
+                            bindings.detailFab.setColorFilter(getResources().getColor(R.color.secondaryColor));
                         })
                         .setNegativeButton(getString(R.string.dialog_no_2), (dialogInterface, i) -> dialogInterface.dismiss())
                         .setMessage(getString(R.string.change_lunch)).setTitle(getString(R.string.change_lunch_title))

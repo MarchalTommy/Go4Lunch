@@ -63,6 +63,8 @@ public class MainUITests {
 
     @Test
     public void loginTest() throws InterruptedException {
+        Thread.sleep(500);
+
         ViewInteraction supportVectorDrawablesButton = onView(
                 allOf(withId(R.id.email_button), withText("Sign in with email")));
         supportVectorDrawablesButton.perform(scrollTo(), click());
@@ -294,13 +296,10 @@ public class MainUITests {
                         isDisplayed()));
         textView5.check(matches(withText("Keanu is eating here !")));
 
+        Thread.sleep(800);
+
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.detail_fab), withContentDescription("Make this place your lunch!"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.nav_host_fragment),
-                                        0),
-                                1),
                         isDisplayed()));
         floatingActionButton.perform(click());
 
@@ -309,13 +308,10 @@ public class MainUITests {
                         isDisplayed()));
         textView4.check(matches(withText("Tester TESTING is eating here !")));
 
+        Thread.sleep(800);
+
         ViewInteraction floatingActionButton2 = onView(
                 allOf(withId(R.id.detail_fab), withContentDescription("Make this place your lunch!"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.nav_host_fragment),
-                                        0),
-                                1),
                         isDisplayed()));
         floatingActionButton2.perform(click());
 
@@ -398,27 +394,18 @@ public class MainUITests {
 
         ViewInteraction textView = onView(
                 allOf(withId(R.id.restaurantName), withText("Chlew"),
-                        withParent(withParent(withId(R.id.restaurantsRecyclerView))),
                         isDisplayed()));
         textView.perform(click());
 
+        Thread.sleep(1000);
+
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.detail_fab), withContentDescription("Make this place your lunch!"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.nav_host_fragment),
-                                        0),
-                                1),
                         isDisplayed()));
         floatingActionButton.perform(click());
 
         ViewInteraction bottomNavigationItemView2 = onView(
                 allOf(withId(R.id.listFragment), withContentDescription("List View"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.bottom_nav_view),
-                                        0),
-                                1),
                         isDisplayed()));
         bottomNavigationItemView2.perform(click());
 
@@ -456,13 +443,10 @@ public class MainUITests {
         );
         imageView.check(matches(isDisplayed()));
 
+        Thread.sleep(800);
+
         ViewInteraction floatingActionButton2 = onView(
                 allOf(withId(R.id.detail_fab), withContentDescription("Make this place your lunch!"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.nav_host_fragment),
-                                        0),
-                                1),
                         isDisplayed()));
         floatingActionButton2.perform(click());
 
