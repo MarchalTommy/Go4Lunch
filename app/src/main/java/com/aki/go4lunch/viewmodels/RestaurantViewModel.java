@@ -39,10 +39,11 @@ public class RestaurantViewModel extends ViewModel {
         return placeRepository.getRestaurantFromName(id, location, context);
     }
 
-    public MutableLiveData<ResultDetailed> getLocalCachedDetails() { return localCachedDetails; }
+    public MutableLiveData<ResultDetailed> getLocalCachedDetails() {
+        return localCachedDetails;
+    }
 
     //SETTING LOCAL DATA
-
     public void setLocalCachedDetails(ResultDetailed details) {
         localCachedDetails.setValue(details);
     }

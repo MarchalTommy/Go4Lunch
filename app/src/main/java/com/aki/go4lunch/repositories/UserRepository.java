@@ -32,7 +32,7 @@ public class UserRepository {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 User user = value.toObject(User.class);
-                        currentUser.setValue(user);
+                currentUser.setValue(user);
             }
         });
         return currentUser;
@@ -51,7 +51,7 @@ public class UserRepository {
     }
 
     public void createUserInFirestore() {
-        if(getCurrentUser() != null){
+        if (getCurrentUser() != null) {
 
             String urlPicture = (UserHelper.getCurrentUserFirebase().getPhotoUrl() != null) ? UserHelper.getCurrentUserFirebase().getPhotoUrl().toString() : null;
             String username = UserHelper.getCurrentUserFirebase().getDisplayName();
@@ -105,9 +105,9 @@ public class UserRepository {
         UserHelper.getUserCollection().whereEqualTo("placeBooked", placeName).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(value != null){
+                if (value != null) {
                     List<User> userList = new ArrayList<>();
-                    for(DocumentSnapshot ds : value.getDocuments()){
+                    for (DocumentSnapshot ds : value.getDocuments()) {
                         userList.add(ds.toObject(User.class));
                     }
                     onPlaceUsers.setValue(userList);

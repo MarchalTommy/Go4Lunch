@@ -126,10 +126,10 @@ public class LoginActivity extends AppCompatActivity {
 
                     //API CALL WITHOUT ANY LISTENER JUST TO CACHE SOME DATA IN ADVANCE
                     restaurantViewModel.getRestaurantsAround(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude()
-                            + "," + locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude(),
+                                    + "," + locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude(),
                             this);
 
-                    if(response != null && response.isNewUser()){
+                    if (response != null && response.isNewUser()) {
                         userViewModel.createCurrentUserInFirestore();
                         Log.d(TAG, "handleResponseAfterSignIn: NEW USER CREATED");
                     }

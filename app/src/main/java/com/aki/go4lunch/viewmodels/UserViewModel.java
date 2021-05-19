@@ -48,7 +48,7 @@ public class UserViewModel extends ViewModel {
         localUsersData.setValue(usersData);
     }
 
-    public void setLocation(LatLng location){
+    public void setLocation(LatLng location) {
         userRepository.setLocation(location);
     }
 
@@ -83,13 +83,4 @@ public class UserViewModel extends ViewModel {
     public void updateNotificationPreference(Boolean pref) {
         userRepository.updateNotificationPreference(pref);
     }
-
-
-
-    //GETTERS
-
-
-
-    //SETTERS
-
 }

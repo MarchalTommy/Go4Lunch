@@ -26,10 +26,10 @@ import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.RestaurantViewHolder> {
 
+    private final User localUser = User.getInstance();
     Context context;
     private List<Result> results = new ArrayList<>();
     private List<User> allUsers = new ArrayList<>();
-    private final User localUser = User.getInstance();
 
     public ListAdapter(Context context) {
         this.context = context;

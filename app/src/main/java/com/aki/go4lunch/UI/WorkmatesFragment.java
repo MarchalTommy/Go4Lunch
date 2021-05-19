@@ -31,9 +31,8 @@ public class WorkmatesFragment extends Fragment {
     UserViewModel userViewModel;
     RestaurantViewModel restaurantViewModel;
     User localUser = User.getInstance();
-    private WorkmatesAdapter adapter;
     NavController navController;
-
+    private WorkmatesAdapter adapter;
     private User workmateClicked = new User();
 
     @Override
@@ -84,7 +83,7 @@ public class WorkmatesFragment extends Fragment {
     public void fromList(FromWorkmatesListToFragment event) {
         workmateClicked = event.user;
 
-        if(workmateClicked.getPlaceBooked() == null | workmateClicked.getPlaceBooked().isEmpty()) {
+        if (workmateClicked.getPlaceBooked() == null | workmateClicked.getPlaceBooked().isEmpty()) {
             Snackbar.make(requireView(), R.string.user_no_lunch, BaseTransientBottomBar.LENGTH_LONG).show();
         } else {
             restaurantViewModel.getRestaurantFromName(workmateClicked.getPlaceBooked(), localUser.getLocation(), requireContext())

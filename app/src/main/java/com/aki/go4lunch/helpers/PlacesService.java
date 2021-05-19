@@ -3,7 +3,6 @@ package com.aki.go4lunch.helpers;
 import com.google.gson.JsonObject;
 
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,8 +13,6 @@ public interface PlacesService {
 
     static PlacesService setRetrofit() {
 
-        //HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        //interceptor.level(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().build();
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -26,7 +23,6 @@ public interface PlacesService {
 
         return retrofit.create(PlacesService.class);
     }
-
 
 
     @GET("/maps/api/place/nearbysearch/json")

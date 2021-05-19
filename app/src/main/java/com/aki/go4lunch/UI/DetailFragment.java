@@ -38,7 +38,6 @@ import com.google.android.material.snackbar.Snackbar;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
@@ -119,14 +118,6 @@ public class DetailFragment extends Fragment {
         }
     };
 
-    public void getRestaurantDetail() {
-        restaurantViewModel.getLocalCachedDetails().observe(getViewLifecycleOwner(), resultDetailed -> {
-            if(resultDetailed != null)
-                restaurantDetail = resultDetailed;
-                updateRestaurantUI(restaurantDetail);
-        });
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -166,6 +157,14 @@ public class DetailFragment extends Fragment {
         bindings.websiteBtn.setOnClickListener(callLikeWebsiteListener);
     }
 
+    public void getRestaurantDetail() {
+        restaurantViewModel.getLocalCachedDetails().observe(getViewLifecycleOwner(), resultDetailed -> {
+            if (resultDetailed != null)
+                restaurantDetail = resultDetailed;
+            updateRestaurantUI(restaurantDetail);
+        });
+    }
+
     //Initiating the workmates eating here adapter
     private void initAdapter() {
         adapter = new DetailAdapter(context);
@@ -187,7 +186,7 @@ public class DetailFragment extends Fragment {
     }
 
     //Updating the adapter
-    private void updateAdapter(){
+    private void updateAdapter() {
         userViewModel.getUsersOnPlace(restaurantDetail.getName()).observe(getViewLifecycleOwner(), users -> adapter.updateList(users));
     }
 
@@ -211,7 +210,7 @@ public class DetailFragment extends Fragment {
                 }
 
                 //Like button design (green when place is liked, orange otherwise)
-                if(localUser.getPlaceLiked().contains(restaurantDetail.getPlaceId())){
+                if (localUser.getPlaceLiked().contains(restaurantDetail.getPlaceId())) {
                     bindings.likeBtn.setText(R.string.liked);
                     bindings.likeBtn.setTextColor(getResources().getColor(R.color.secondaryDarkColor));
                     Drawable[] drawables = bindings.likeBtn.getCompoundDrawables();

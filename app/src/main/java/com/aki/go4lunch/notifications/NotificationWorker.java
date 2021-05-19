@@ -34,7 +34,7 @@ public class NotificationWorker extends Worker {
         String users = getInputData().getString("WORKMATES");
 
 
-        if(users.isEmpty()){
+        if (users.isEmpty()) {
             sendVisualNotification(getApplicationContext().getString(R.string.its_time_for_lunch) + restaurantName + " !",
                     getApplicationContext().getString(R.string.the_address_is) + formattedAddress,
                     getApplicationContext().getString(R.string.only_one));

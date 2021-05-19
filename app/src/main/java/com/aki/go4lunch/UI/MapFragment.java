@@ -62,8 +62,6 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 public class MapFragment extends Fragment {
 
-    //TODO : FAIRE MARCHER FIABLE SUR API 19 !
-
     RestaurantViewModel restaurantViewModel;
     UserViewModel userViewModel;
 
@@ -222,13 +220,13 @@ public class MapFragment extends Fragment {
                         markerOptions.position(restaurantLocation);
                         markerOptions.icon(iconBasic);
 
-                            for (User u : allUsers) {
-                                if (u.getPlaceBooked().equals(r.getName())) {
-                                    markerOptions.icon(iconReserved);
-                                }
-
-                                gMap.addMarker(markerOptions);
+                        for (User u : allUsers) {
+                            if (u.getPlaceBooked().equals(r.getName())) {
+                                markerOptions.icon(iconReserved);
                             }
+
+                            gMap.addMarker(markerOptions);
+                        }
 
                     }
                 }
@@ -288,7 +286,7 @@ public class MapFragment extends Fragment {
                 requireContext()).observe(getViewLifecycleOwner(), new Observer<ArrayList<Result>>() {
             @Override
             public void onChanged(ArrayList<Result> results) {
-                if(results != null) {
+                if (results != null) {
                     resultList.addAll(results);
                 }
 

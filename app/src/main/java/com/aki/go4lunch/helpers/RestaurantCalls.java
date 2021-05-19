@@ -19,14 +19,9 @@ import static android.content.ContentValues.TAG;
 public class RestaurantCalls {
 
 
-    public interface Callbacks {
-        void onResponse(@Nullable JsonObject jsonObject);
-        void onFailure();
-    }
-
     public static void fetchRestaurantsAround(Callbacks callbacks, String coordinates, Context context) {
 
-        final WeakReference<Callbacks> callbacksWeakReference = new WeakReference<Callbacks>(callbacks);
+        final WeakReference<Callbacks> callbacksWeakReference = new WeakReference<>(callbacks);
 
         PlacesService placesService = PlacesService.setRetrofit();
 
@@ -116,5 +111,11 @@ public class RestaurantCalls {
             }
         });
 
+    }
+
+    public interface Callbacks {
+        void onResponse(@Nullable JsonObject jsonObject);
+
+        void onFailure();
     }
 }

@@ -84,7 +84,7 @@ public class ListFragment extends Fragment {
 
     public ArrayList<User> getAllUsers() {
         userViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
-            if(users != null) {
+            if (users != null) {
                 allUsers.clear();
                 allUsers.addAll(users);
             }
@@ -119,7 +119,7 @@ public class ListFragment extends Fragment {
         result.setName(resultDetailed.getName());
         result.setGeometry(resultDetailed.getGeometry());
 
-        ArrayList<Result>results = new ArrayList<>();
+        ArrayList<Result> results = new ArrayList<>();
         results.add(result);
         adapter.updateList(results, getAllUsers());
     }
@@ -128,7 +128,7 @@ public class ListFragment extends Fragment {
     public void onGettingDetail(FromAdapterToFragment event) {
         Log.d(TAG, "onGettingDetail: Event called successfully : \nRestaurant name : " + event.result.getName());
         restaurantViewModel.getRestaurantDetail(event.result.getPlaceId(), requireContext()).observe(getViewLifecycleOwner(), resultDetails -> {
-            if(resultDetails != null) {
+            if (resultDetails != null) {
                 restaurantViewModel.setLocalCachedDetails(resultDetails.getResult());
 
                 navController.navigate(R.id.detailFragment);

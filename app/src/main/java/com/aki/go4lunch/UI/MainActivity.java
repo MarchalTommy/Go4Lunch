@@ -29,7 +29,6 @@ import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
 import com.aki.go4lunch.R;
-import com.aki.go4lunch.Utils;
 import com.aki.go4lunch.databinding.ActivityMainBinding;
 import com.aki.go4lunch.databinding.NavHeaderBinding;
 import com.aki.go4lunch.databinding.SettingsDialogBinding;
@@ -61,7 +60,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -327,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 
-        if(userViewModel.getCurrentFirebaseUser() != null) {
+        if (userViewModel.getCurrentFirebaseUser() != null) {
             if (userViewModel.getCurrentFirebaseUser().getPhotoUrl() != null) {
                 Glide.with(this)
                         .load(userViewModel.getCurrentFirebaseUser().getPhotoUrl())
@@ -399,7 +397,6 @@ public class MainActivity extends AppCompatActivity {
             return builder.create();
         }
     }
-
 
 
 }
