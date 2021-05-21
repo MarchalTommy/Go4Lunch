@@ -16,6 +16,10 @@
         <item name="colorSurface">@android:color/white</item>
     </style>
 
+    <style name="Burger_icon" parent="Theme.Go4LunchV2">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
     <style name="Login_theme" parent="FirebaseUI">
         <item name="android:windowTranslucentStatus">true</item>
         <!-- Primary brand color. -->

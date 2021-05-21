@@ -183,34 +183,34 @@ public class MapFragment extends Fragment {
         userViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
             if (users != null) {
                 allUsers.addAll(users);
-            }
 
-            //Placing markers on restaurant location.
-            //If user has set his lunch to one, marker's green, otherwise, primary color.
-            restaurantViewModel.getRestaurantsAround(localUser.getLocation(), requireContext()).observe(getViewLifecycleOwner(), results -> {
-                if (results != null) {
-                    for (Result r : results) {
-                        LatLng restaurantLocation = new LatLng(
-                                r.getGeometry().getLocation().getLat(),
-                                r.getGeometry().getLocation().getLng());
+                //Placing markers on restaurant location.
+                //If user has set his lunch to one, marker's green, otherwise, primary color.
+                restaurantViewModel.getRestaurantsAround(localUser.getLocation(), requireContext()).observe(getViewLifecycleOwner(), results -> {
+                    if (results != null) {
+                        for (Result r : results) {
+                            LatLng restaurantLocation = new LatLng(
+                                    r.getGeometry().getLocation().getLat(),
+                                    r.getGeometry().getLocation().getLng());
 
-                        MarkerOptions markerOptions = new MarkerOptions();
-                        markerOptions.title(r.getName());
-                        markerOptions.snippet(r.getPlaceId());
-                        markerOptions.position(restaurantLocation);
-                        markerOptions.icon(iconBasic);
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.title(r.getName());
+                            markerOptions.snippet(r.getPlaceId());
+                            markerOptions.position(restaurantLocation);
+                            markerOptions.icon(iconBasic);
 
-                        for (User u : allUsers) {
-                            if (u.getPlaceBooked().equals(r.getName())) {
-                                markerOptions.icon(iconReserved);
+                            for (User u : allUsers) {
+                                if (u.getPlaceBooked().equals(r.getName())) {
+                                    markerOptions.icon(iconReserved);
+                                }
+
+                                gMap.addMarker(markerOptions);
                             }
 
-                            gMap.addMarker(markerOptions);
                         }
-
                     }
-                }
-            });
+                });
+            }
         });
     }
 

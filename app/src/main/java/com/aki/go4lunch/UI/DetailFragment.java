@@ -237,9 +237,9 @@ public class DetailFragment extends Fragment {
                         .setPositiveButton(getString(R.string.dialog_yes), (dialogInterface, i) -> {
                             //Updating data for the com.aki.go4lunch.UI
                             userViewModel.updateHasBooked(false);
-                            userViewModel.updatePlaceBooked("");
+                            userViewModel.updatePlaceBooked(" ");
                             localUser.setHasBooked(false);
-                            localUser.setPlaceBooked("");
+                            localUser.setPlaceBooked(" ");
                             updateAdapter();
                             bindings.detailFab.setColorFilter(getResources().getColor(R.color.white));
                         })
