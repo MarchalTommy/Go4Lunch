@@ -179,26 +179,6 @@ public class MapFragment extends Fragment {
         BitmapDescriptor iconBasic = BitmapDescriptorFactory.defaultMarker(huePrimary);
         BitmapDescriptor iconReserved = BitmapDescriptorFactory.defaultMarker(hueSecondary);
 
- /*       for (Result r : resultList) {
-            LatLng restaurantLocation = new LatLng(
-                    r.getGeometry().getLocation().getLat(),
-                    r.getGeometry().getLocation().getLng());
-
-            MarkerOptions markerOptions = new MarkerOptions();
-            markerOptions.title(r.getName());
-            markerOptions.snippet(r.getPlaceId());
-            markerOptions.position(restaurantLocation);
-            markerOptions.icon(iconBasic);
-
-            for (User u : allUsers) {
-                if (u.getPlaceBooked().equals(r.getName())) {
-                    markerOptions.icon(iconReserved);
-                }
-
-                gMap.addMarker(markerOptions);
-            }
-        }*/
-
         //Getting all the users
         userViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
             if (users != null) {
@@ -334,7 +314,6 @@ public class MapFragment extends Fragment {
                 askPermissions();
             }
         } else {
-            Log.d(TAG, "getPermissions: PERMISSIONS ALREADY GRANTED ");
             if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                 //To start the location update listener
                 locationUpdates();
@@ -408,7 +387,6 @@ public class MapFragment extends Fragment {
         if (requestCode == 2) {
             if (grantResults[0] == PERMISSION_GRANTED) {
                 //ACCESS LOCATION, IT MEANS THAT PERMISSIONS ARE GOOD
-                Log.d(TAG, "onRequestPermissionsResult: PERMISSIONS GRANTED");
                 LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                     //When location service is enabled, get last location

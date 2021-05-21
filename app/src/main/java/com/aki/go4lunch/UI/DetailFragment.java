@@ -53,8 +53,8 @@ public class DetailFragment extends Fragment {
 
     User localUser = User.getInstance();
 
-    //Listener
-    //Floating action button
+    // Listener
+    // Floating action button
     private final OnClickListener fabListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -74,7 +74,7 @@ public class DetailFragment extends Fragment {
             }
         }
     };
-    //Button bar (call, like, website)
+    // Button bar (call, like, website)
     @SuppressLint("NonConstantResourceId")
     private final OnClickListener callLikeWebsiteListener = view -> {
         switch (view.getId()) {
@@ -165,7 +165,7 @@ public class DetailFragment extends Fragment {
         });
     }
 
-    //Initiating the workmates eating here adapter
+    // Initiating the workmates eating here adapter
     private void initAdapter() {
         adapter = new DetailAdapter(context);
         bindings.detailRecyclerview.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
@@ -185,7 +185,7 @@ public class DetailFragment extends Fragment {
 
     }
 
-    //Updating the adapter
+    // Updating the adapter
     private void updateAdapter() {
         userViewModel.getUsersOnPlace(restaurantDetail.getName()).observe(getViewLifecycleOwner(), users -> adapter.updateList(users));
     }
@@ -265,7 +265,7 @@ public class DetailFragment extends Fragment {
         }
     }
 
-    //Updating com.aki.go4lunch.UI with restaurant information
+    // Updating UI with restaurant information
     public void updateRestaurantUI(ResultDetailed restaurant) {
         //Rating
         bindings.detailRatingBar.setNumStars(3);

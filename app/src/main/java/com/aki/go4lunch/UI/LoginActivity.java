@@ -89,8 +89,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void startSignInActivity() {
-        Log.d(TAG, "startSignInActivity: SIGN IN STARTED");
-        System.out.println("METHOD CALLED");
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
@@ -108,13 +106,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult: SIGN IN COMPLETE");
         handleResponseAfterSignIn(requestCode, resultCode, data);
     }
 
     private void handleResponseAfterSignIn(int requestCode, int resultCode, Intent data) {
         IdpResponse response = IdpResponse.fromResultIntent(data);
-        Log.d(TAG, "handleResponseAfterSignIn: SIGN IN AFTER CHECK : LOGIN OR ERROR");
         if (requestCode == AUTH_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
 
@@ -131,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (response != null && response.isNewUser()) {
                         userViewModel.createCurrentUserInFirestore();
-                        Log.d(TAG, "handleResponseAfterSignIn: NEW USER CREATED");
                     }
                     // INTENT TO MAIN ACTIVITY
                     Intent intent = new Intent(this, MainActivity.class);
@@ -173,7 +168,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         } else {
-            Log.d(TAG, "getPermissions: PERMISSIONS ALREADY GRANTED ");
             startSignInActivity();
             if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
 
@@ -249,7 +243,6 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == 2) {
             if (grantResults[0] == PERMISSION_GRANTED) {
                 //ACCESS LOCATION, IT MEANS THAT PERMISSIONS ARE GOOD
-                Log.d(TAG, "onRequestPermissionsResult: PERMISSIONS GRANTED");
                 LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
                     //When location service is enabled, get last location
